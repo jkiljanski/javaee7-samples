@@ -1,10 +1,10 @@
 package org.javaee7.jaxws.endpoint;
 
+import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.jws.WebService;
 
 /**
  * 
@@ -12,19 +12,19 @@ import javax.jws.WebService;
  *
  */
 @WebService(endpointInterface = "org.javaee7.jaxws.endpoint.EBookStore",
-    serviceName = "EBookStoreImplService")
-public class EBookStoreImpl implements EBookStore {
+    serviceName = "EBookStore")
+public class EBookStoreImpl /*implements EBookStore*/ {
 
     private HashMap<String, EBook> eBookCollection = new HashMap<String, EBook>();
 
-    @Override
+    //@Override
     public String welcomeMessage(String name) {
         return "Welcome to EBookStore WebService, Mr/Mrs " + name;
     }
 
-    @Override
+    //@Override
     public List<String> findEBooks(String text) {
-        List<String> foundTitles = new ArrayList<String>();
+        List<String> foundTitles = new ArrayList<>();
         for (String title : eBookCollection.keySet()) {
             if (title.contains(text)) {
                 foundTitles.add(title);
@@ -33,18 +33,18 @@ public class EBookStoreImpl implements EBookStore {
         return foundTitles;
     }
 
-    @Override
+    //@Override
     public EBook takeBook(String title) {
         return eBookCollection.get(title);
     }
 
-    @Override
+    //@Override
     public void saveBook(EBook eBook) {
         eBookCollection.put(eBook.getTitle(), eBook);
 
     }
 
-    @Override
+    //@Override
     public EBook addAppendix(EBook eBook, int appendixPages) {
         eBook.setNumPages((eBook.getNumPages() + appendixPages));
         eBookCollection.put(eBook.getTitle(), eBook);

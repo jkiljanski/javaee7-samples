@@ -22,14 +22,15 @@
                 <version>2.3</version>
                 <executions>
                     <execution>
-                        <phase>process-classes</phase>
+                        <id>generate-wsdl</id>
                         <goals>
                             <goal>wsgen</goal>
                         </goals>
+                        <phase>process-classes</phase>
                         <configuration>
                             <sei>org.javaee7.jaxws.endpoint.EBookStoreImpl</sei>
                             <genWsdl>true</genWsdl>
-                            <resourceDestDir>${basedir}/src/main/webapp/WEB-INF/wsdl</resourceDestDir>
+                            <verbose>true</verbose>
                         </configuration>
                     </execution>
                 </executions>

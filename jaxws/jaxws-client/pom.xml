@@ -29,9 +29,9 @@
                         <configuration>
                             <packageName>org.javaee7.jaxws.client.gen</packageName>
                             <wsdlFiles>
-                                <wsdlFile>../../../jaxws-endpoint/src/main/webapp/WEB-INF/wsdl/EBookStoreImplService.wsdl</wsdlFile>
+                                <wsdlFile>../../../jaxws-endpoint/src/main/webapp/WEB-INF/wsdl/EBookStore.wsdl</wsdlFile>
                             </wsdlFiles>
-                            <wsdlLocation>http://localhost:8080/jaxws-endpoint/EBookStoreImplService?wsdl</wsdlLocation>
+                            <wsdlLocation>http://localhost:8080/jaxws-endpoint/EBookStore?wsdl</wsdlLocation>
                             <verbose>true</verbose>
                             <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
                             <target>2.1</target>

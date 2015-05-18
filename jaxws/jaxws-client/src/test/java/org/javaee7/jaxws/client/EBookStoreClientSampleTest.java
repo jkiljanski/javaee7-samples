@@ -55,8 +55,8 @@ public class EBookStoreClientSampleTest {
     @Before
     public void setUp() throws Exception {
         eBookStoreService = new EBookStoreImplService(
-            new URL(url, "EBookStoreImplService?wsdl"),
-            new QName("http://endpoint.jaxws.javaee7.org/", "EBookStoreImplService"));
+            new URL(url, "EBookStore?wsdl"),
+            new QName("http://endpoint.jaxws.javaee7.org/", "EBookStore"));
     }
 
     @Test
