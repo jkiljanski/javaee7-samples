@@ -11,14 +11,13 @@ import javax.xml.namespace.QName;
 
 import org.javaee7.jaxws.client.gen.EBook;
 import org.javaee7.jaxws.client.gen.EBookStore;
-import org.javaee7.jaxws.client.gen.EBookStoreImplService;
 
+import org.javaee7.jaxws.client.gen.EBookStore_Service;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.resolver.api.maven.archive.importer.MavenImporter;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 
 import org.junit.Before;
@@ -33,7 +32,7 @@ import org.junit.runners.MethodSorters;
 @RunWith(Arquillian.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EBookStoreClientSampleTest {
-    private static EBookStoreImplService eBookStoreService;
+    private static EBookStore_Service eBookStoreService;
 
     /**
      * Method for creating and deploying the war file from 'jaxws-endpoint' project,
@@ -54,7 +53,7 @@ public class EBookStoreClientSampleTest {
 
     @Before
     public void setUp() throws Exception {
-        eBookStoreService = new EBookStoreImplService(
+        eBookStoreService = new EBookStore_Service(
             new URL(url, "EBookStore?wsdl"),
             new QName("http://endpoint.jaxws.javaee7.org/", "EBookStore"));
     }
