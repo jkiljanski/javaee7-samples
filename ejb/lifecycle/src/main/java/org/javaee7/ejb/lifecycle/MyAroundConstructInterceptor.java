@@ -2,6 +2,7 @@ package org.javaee7.ejb.lifecycle;
 
 import javax.annotation.Priority;
 import javax.interceptor.AroundConstruct;
+import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
@@ -13,8 +14,17 @@ import javax.interceptor.InvocationContext;
 @MyAroundConstructInterceptorBinding
 public class MyAroundConstructInterceptor {
 
-    @AroundConstruct
-    public void validateConstructor(InvocationContext context) {
-        System.out.println("MyAroundConstructInterceptor.validateConstructor");
-    }
+	@AroundConstruct
+	public Object validateConstructor(InvocationContext context) throws Exception {
+		System.out.println("MyAroundConstructInterceptor.validateConstructor");
+		return context.proceed();
+	}
+
+	@AroundInvoke
+	public Object validateMethod(InvocationContext context) throws Exception {
+		System.out.println("MyAroundConstructInterceptor.validateMethod: " + context.getMethod().getDeclaringClass().getName() + ":" + context.getMethod().getName());
+		return context.proceed();
+	}
+
+
 }
